@@ -1,0 +1,18 @@
+<div class="notification" data-turbo-temporary>
+  <% flash.each do |level, message| %>
+   
+    <% color_classes = {
+    notice: "blue",
+    alert: "yellow"
+    } %>
+
+    <% color = color_classes[level.to_sym] || "gray" %>
+   
+    <%= tag.div class: "p-4 m-4 text-center font-medium bg-#{color}-100 text-#{color}-500 rounded" do %>
+      <%= message %>
+    <% end %>
+
+  <% end %>
+</div>
+
+

@@ -1,0 +1,10 @@
+<% if model_name.errors.any? %>
+<div id="error_explanation" class="mb-8 border border-gray-100 space-y-2 ">
+    <h2 class="p-2 bg-red-600 text-red-100"><%= pluralize(model_name.errors.count, "error") %> prevented this <%= model_name.model_name.human %> from being saved: </h2>
+    <ul class="list-disc pl-6 text-red-500 text-sm">
+        <% model_name.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>

@@ -1,0 +1,34 @@
+<%= content_for :title, t(".title") %>
+
+<layout-columns class="flex flex-col justify-center items-center">
+  <layout-column class="w-full md:w-3xl my-20 p-4 shadow-lg">
+    <h1 class="mb-4 text-2xl font-medium text-center text-gray-700"><%= t(".title") %></h1>
+
+    <%= form_with(model: @user, url: sign_up_path) do |form| %>
+
+      <%= render partial: "layouts/shared/error_explanation", locals: { model_name: @user } %>
+
+      <div class="flex flex-col items-center justify-center space-y-4">
+        <div class="w-full">
+          <%= form.label :name, class: "block font-medium" %>
+          <%= form.text_field :name, class: "form-control w-full" %>
+        </div>
+
+        <div class="w-full">
+          <%= form.label :email, class: "block font-medium" %>
+          <%= form.email_field :email, class: "form-control w-full" %>
+        </div>
+
+        <div class="w-full">
+          <%= form.label :password, class: "block font-medium" %>
+          <%= form.password_field :password, class: "form-control w-full" %>
+        </div>
+
+        <div class="ml-auto">
+          <%= form.submit t(".sign_up"), class: "btn text-green-100 bg-green-500 hover:bg-green-400 hover:scale-105 transition ease-in-out duration-300 cursor-pointer" %>
+        </div>
+      </div>
+
+    <% end %>
+  </layout-column>
+</layout-columns>
