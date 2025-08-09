@@ -81,9 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: piazza_production
-    username: piazza
-    password: <%= ENV["PIAZZA_DATABASE_PASSWORD"] %>
+    url: <%= Rails.application.credentials.dig(:database_url) %>
   cache:
     <<: *primary_production
     database: piazza_production_cache
