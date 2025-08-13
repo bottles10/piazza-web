@@ -1,18 +1,33 @@
-<div class="notification" data-turbo-temporary>
-  <% flash.each do |level, message| %>
+<div class="m-4" data-turbo-temporary>
+
+  <% if notice %>
+      <div data-controller="flash" id="alert" class="notification p-4 text-center font-medium bg-blue-100 text-blue-500 rounded" role="alert">
+          <%= notice %>
+      </div>
+  <% end %>
+
+  <% if alert %>
+      <div data-controller="flash" id="alert" class="notification p-4 text-center font-medium bg-yellow-100 text-yellow-500 rounded" role="alert">
+          <%= alert %>
+      </div>
+  <% end %>
+
+
+
+  <%# flash.each do |level, message| %>
    
-    <% color_classes = {
+    <%# color_classes = {
     notice: "blue",
     alert: "yellow"
     } %>
 
-    <% color = color_classes[level.to_sym] || "gray" %>
+    <%# color = color_classes[level.to_sym] || "gray" %>
    
-    <%= tag.div class: "p-4 m-4 text-center font-medium bg-#{color}-100 text-#{color}-500 rounded" do %>
-      <%= message %>
-    <% end %>
+    <%# tag.div class: "p-4 m-4 text-center font-medium bg-#{color}-100 text-#{color}-500 rounded" do %>
+      <%# message %>
+    <%# end %>
 
-  <% end %>
+  <%# end %>
 </div>
 
 
