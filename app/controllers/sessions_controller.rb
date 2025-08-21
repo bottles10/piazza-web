@@ -19,6 +19,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    log_out
+    redirect_to root_path, status: :see_other, notice: t(".success")
+  end
+
   private
 
     def login_params

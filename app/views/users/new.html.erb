@@ -1,7 +1,7 @@
 <%= content_for :title, t(".title") %>
 
 <layout-columns class="flex flex-col justify-center items-center">
-  <layout-column class="w-full md:w-3xl my-20 p-4 shadow-lg">
+  <layout-column class="w-full md:w-3xl my-20 p-4 bg-white rounded shadow-lg">
     <h1 class="mb-4 text-2xl font-medium text-center text-gray-700"><%= t(".title") %></h1>
 
     <%= form_with(model: @user, url: sign_up_path) do |form| %>
