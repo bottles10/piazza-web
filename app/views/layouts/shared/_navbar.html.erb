@@ -1,0 +1,36 @@
+<!-- logo / navigation -->
+<%# locals: () -%>
+
+
+<header class="sticky top-0 z-10 font-serif text-white bg-blue-800 shadow-md">
+  <div class="p-3 flex flex-wrap items-center justify-between">
+    <div class="space-x-3">
+      <%= link_to "Piazza", root_path, class: "text-2xl font-bold" %>
+      <%= link_to t(".create_ad"), "#" %>
+    </div>
+    
+    <label for="menu-toggle" class="block lg:hidden cursor-pointer">
+      <bread-crumb class="flex space-x-1 transform -rotate-90">
+        <div class="h-4 border-l-2"></div>
+        <div class="h-3 border-l-2"></div>
+        <div class="h-4 border-l-2"></div>
+      </bread-crumb>
+    </label>
+    <input type="checkbox" id="menu-toggle" class="hidden peer/breadcrumb">
+
+      <nav class="hidden peer-checked/breadcrumb:block lg:mr-5 lg:flex w-full lg:w-auto">
+        <ul class="w-40 lg:w-auto my-4 lg:my-0 p-3 lg:p-0 lg:flex items-center text-sm text-center bg-gray-950 lg:bg-blue-800 text-white border border-gray-900 lg:border-0 rounded lg:rounded-none space-y-8 lg:space-y-0 lg:space-x-8">
+          <% if logged_in? %>  
+            <li class="font-medium hover:font-bold transition hover:scale-105 duration-300"><%= link_to Current.user.name, "#" %></li>
+            <li class="font-medium hover:font-bold transition-all hover:scale-105 duration-300 ease-in-out"><%= link_to t(".profile"), "#" %></li>
+            <li class="font-medium hover:font-bold transition-all hover:scale-105 duration-300 ease-in-out"><%= link_to t(".my_ads"), "#" %></li>
+            <li class="font-medium hover:font-bold transition-all hover:scale-105 duration-300 ease-in-out"><%= link_to t(".saved_ads"), "#" %></li>
+            <li class="inline-block py-2 px-6 font-medium hover:font-extrabold text-red-100 bg-red-500 transition duration-300 rounded"><%= link_to t(".logout"), "#" %></li>
+          <% else %>
+            <li class="font-medium hover:font-bold transition-all hover:scale-105 duration-300 ease-in-out"><%= link_to "Sign up", sign_up_path %></li>
+            <li class="font-medium hover:font-bold transition-all hover:scale-105 duration-300 ease-in-out"><%= link_to "Login", login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+  </div>
+</header>
